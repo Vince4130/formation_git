@@ -11,3 +11,4 @@
       dest: /tmp/etc.tar.gz
       owner: root
       group: root
+      mode: '444'
