@@ -1,0 +1,15 @@
+---
+# tasks file for nfs_client
+
+- name: install nfs utils
+  ansible.builtin.package:
+    name: nfs-utils
+    state: present
+  notify: nfs_server_restart
+
+- name: nfstab et mount
+  ansible.posix.mount:
+    src: d2-2-rbx-a-13:/srv/nfs
+    path: /mount
+    fstype: nfs
+    state: mounted
