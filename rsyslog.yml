@@ -10,7 +10,7 @@
     ansible.builtin.lineinfile:
       path:  /etc/rsyslog.conf
       line:  local4.*    /var/log/test
-      regexp: "^local4."
+      regexp: "^local4"
     notify:
       - restart syslog
       - logger_test
