@@ -9,4 +9,4 @@ ansible_ssh_extra_args='-o StrictHostKeyChecking=accept-new'
 d2-2-rbx-a-12	ansible_host=91.134.99.25
 
 [client]
-d2-2-rbx-a-13	ansible_host=91.134.97.140
+d2-2-rbx-a-13	ansible_host=91.134.97.140  nfs_client_serveur=d2-2-rbx-a-13    nfs_client_chemin=/srv/nfs

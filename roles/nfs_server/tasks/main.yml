@@ -18,6 +18,6 @@
 - name: Ajout ligne dans /etc/exports
   ansible.builtin.lineinfile:
     path: /etc/exports
-    line: '/srv/nfs  91.134.0.0/16(rw)'
+    line: '/srv/nfs  91.134.0.0/16 (rw)'
     regexp: "^/srv/nfs"
   notify: nfs_server_restart

@@ -5,5 +5,4 @@
   ansible.builtin.service:
     name: nfs-server
     state: started
-    enabled: true
-  listen: nfs_server_restart
+  listen: nfs_server_start
