@@ -1,0 +1,32 @@
+---
+
+- name: Exercice 4
+  hosts: test
+  become: true
+  vars:
+    repertoire: /var/log/test
+
+  tasks:
+
+  - name: Création  {{ repertoire }}
+    ansible.builtin.file:
+      path: " {{ repertoire }}"
+      owner: root
+      group: root
+      state: directory
+      mode: '644'
+
+  - name: Service de journalisation
+    ansible.builtin.lineinfile:
+      path:  /etc/rsyslog.conf
+      line:  local4.* /var/log/test
+    notify:
+      - restart syslog
+
+  handlers:
+    - name: Redémarrage de rsyslog
+      ansible.builtin.service:
+        name: rsyslog
+        state: restarted
+      listen: restart rsyslog
+
