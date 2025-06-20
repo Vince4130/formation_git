@@ -10,11 +10,11 @@
 
   - name: Création  {{ repertoire }}
     ansible.builtin.file:
-      path: " {{ repertoire }}"
+      path: "{{ repertoire }}"
       owner: root
       group: root
       state: directory
-      mode: '644'
+      mode: '755'
 
   - name: Service de journalisation
     ansible.builtin.lineinfile:
@@ -28,5 +28,5 @@
       ansible.builtin.service:
         name: rsyslog
         state: restarted
-      listen: restart rsyslog
+      listen: restart syslog
 
