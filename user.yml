@@ -1,0 +1,21 @@
+---
+
+- name: Exercice 3
+  hosts: test
+  become: true
+  vars:
+    utilisateur: vince
+  
+  tasks:
+  
+  - name: Création user {{ utilisateur }}
+    ansible.builtin.user:
+      name: "{{ utilisateur }}"
+      
+  - name: Cron date
+    ansible.builtin.cron:
+      name: minute
+      minute: "{{ ansible_date_time.minute | int + 1 }}"
+      job: "date >> /tmp/date"
+      user: "{{ utilisateur }}"
+
